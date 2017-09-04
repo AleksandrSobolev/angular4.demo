@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Task: {{ task.taskName }}
+    <button type="button" class="btn btn-default btn-xs pull-right" (click)="onClickDelete()">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+  </div>
+  <div class="panel-body">
+    Description:{{ task.description | longText:100 }}<br />
+    ClientAddress: {{ task.clientAddress}}<br /><br />
+    StartTime: {{ task.startTime | date:'short' }}<br />
+    EndTime: {{ task.endTime  | date: 'short' }}<br />
+  </div>
+</div>

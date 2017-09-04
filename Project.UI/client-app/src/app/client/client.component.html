@@ -1,0 +1,10 @@
+<div class="panel panel-default" (click)="onClick(client)" [class.selected-client]="isSelected">
+  <div class="panel-heading">
+    FirstName: {{ client.firstName }}<br /> 
+    LastName: {{ client.lastName }}
+  </div>
+  <div class="panel-body">
+    Address(City): {{ client.address }}<br />
+    Phones: <phone-csv [phones]="client.phones"></phone-csv>
+  </div>
+</div>

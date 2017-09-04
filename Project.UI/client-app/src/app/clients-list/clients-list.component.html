@@ -1,0 +1,17 @@
+
+<div id="filterClientsContainer">
+    <div class="form-group">
+        <label for="nameFilter">Filter by name:</label>
+        <input class="form-control" id="nameFilter" [(ngModel)]="firstNameFilterValue" (keyup)="onFilter()">
+    </div>
+    <div class="form-group">    
+        <label for="cityFilter">Filter by city:</label>
+        <select class="form-control" id="cityFilter" [(ngModel)]="cityFilterValue" (change)="onFilter()">
+            <option [value]=""></option>
+            <option *ngFor="let city of clientCities" [value]="city">{{ city }}</option>
+        </select>
+    </div>
+</div>
+<br/>
+<client-panel *ngFor="let client of clients" [isSelected]="client.id === selectedClientId" [clientModel]="client" (clickByClient)="onSelect($event)">
+</client-panel>

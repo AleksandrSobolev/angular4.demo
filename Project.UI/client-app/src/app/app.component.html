@@ -1,0 +1,16 @@
+
+<div class="container-fluid">
+  <h1>Client Tasks</h1>
+  <div class="row">
+    <div class="col-sm-3 col-md-6 col-lg-4 clients-list-master">
+      <h3>List of Clients</h3>
+      <clients-list [selectedClientId]="currentClient?.id" (changeClient)="onClientChange($event)" (filterClients)="onFilterData($event)"></clients-list>
+    </div>
+    <div class="col-sm-9 col-md-6 col-lg-8 client-task-detail">
+      <h3>Current tasks:</h3>
+      <div *ngIf="!currentClient">No client selected!</div>
+      <div *ngIf="currentClient?.tasks?.length === 0">No tasks for client!</div>
+      <task-panel *ngFor="let task of currentClient?.tasks" [client]="currentClient" [clientTask]="task"></task-panel>
+    </div>
+  </div>
+</div>
